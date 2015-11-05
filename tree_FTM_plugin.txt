@@ -1,0 +1,59 @@
+.
+├── FTM_dialog_base.ui
+├── FTM_dialog.py
+├── FTM_dialog.pyc
+├── FTM-pas_dialog_base.ui
+├── FTM.py
+├── FTM.pyc
+├── help
+│   ├── build
+│   ├── make.bat
+│   ├── Makefile
+│   └── source
+│       ├── conf.py
+│       ├── index.rst
+│       ├── _static
+│       └── _templates
+├── icon.png
+├── __init__.py
+├── __init__.pyc
+├── Makefile
+├── metadata.txt
+├── pb_tool.cfg
+├── plugin_upload.py
+├── pylintrc
+├── README.html
+├── README.txt
+├── resources.py
+├── resources.pyc
+├── resources.qrc
+├── scripts
+│   ├── compile-strings.sh
+│   ├── run-env-linux.sh
+│   └── update-strings.sh
+├── test
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── qgis_interface.py
+│   ├── qgis_interface.pyc
+│   ├── tenbytenraster.asc
+│   ├── tenbytenraster.asc.aux.xml
+│   ├── tenbytenraster.keywords
+│   ├── tenbytenraster.lic
+│   ├── tenbytenraster.prj
+│   ├── tenbytenraster.qml
+│   ├── test_FTM_dialog.py
+│   ├── test_FTM_dialog.pyc
+│   ├── test_init.py
+│   ├── test_init.pyc
+│   ├── test_qgis_environment.py
+│   ├── test_qgis_environment.pyc
+│   ├── test_resources.py
+│   ├── test_resources.pyc
+│   ├── test_translations.py
+│   ├── test_translations.pyc
+│   ├── utilities.py
+│   └── utilities.pyc
+└── tree_FTM_plugin.txt
+
+7 directories, 49 files
