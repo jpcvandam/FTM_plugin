@@ -92,8 +92,8 @@ class FTM:
         enabled_flag=True,
         add_to_menu=True,
         add_to_toolbar=True,
-        status_tip=None,
-        whats_this=None,
+        status_tip="FTM plugin",
+        whats_this="Plugin om grondwaterstanden uit te rekenen",
         parent=None):
         """Add a toolbar icon to the toolbar.
 
