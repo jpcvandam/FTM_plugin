@@ -8,7 +8,7 @@
         begin                : 2015-10-08
         git sha              : $Format:%H$
         copyright            : (C) 2015 by John van Dam
-        email                : jpcvandam@gmai.com
+        email                : jpcvandam@gmail.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -21,12 +21,14 @@
  ***************************************************************************/
 """
 from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
-from PyQt4.QtGui import QAction, QIcon
+from PyQt4.QtGui import QAction, QIcon, QFileDialog
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
 from FTM_dialog import FTMDialog
 import os.path
+from qgis.core import *
+import FTM
 
 
 class FTM:
@@ -67,6 +69,12 @@ class FTM:
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'FTM')
         self.toolbar.setObjectName(u'FTM')
+	self.dlg.talkback.clear() #initialize the box for line editing of the path and filename
+    
+	#self.dlg.drainageweerstand.clear() #initialize the box for line editing of the path and filename
+	#self.dlg.ontwateringsbasis.clear() #initialize the box for line editing of the path and filename
+	#self.dlg.kwel.clear() #initialize the box for line editing of the path and filename
+	
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -167,6 +175,7 @@ class FTM:
             callback=self.run,
             parent=self.iface.mainWindow())
 
+    
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
@@ -181,12 +190,32 @@ class FTM:
 
     def run(self):
         """Run method that performs all the real work"""
-        # show the dialog
+        layers = self.iface.legendInterface().layers()
+        layer_list = []
+        for layer in layers:
+            layer_list.append(layer.name())
+        self.dlg.drainageweerstand.addItems(layer_list)
+        self.dlg.bergingscoefficient.addItems(layer_list)
+        self.dlg.ontwateringsbasis.addItems(layer_list)
+        self.dlg.kwel.addItems(layer_list)        
+        self.dlg.talkback.setText("hoi")
+	# show the dialog
         self.dlg.show()
         # Run the dialog event loop
         result = self.dlg.exec_()
         # See if OK was pressed
         if result:
-            # Do something useful here - delete the line containing pass and
+            selectedLayerIndex_dw = self.dlg.drainageweerstand.currentIndex()
+            selectedLayer_dw = layers[selectedLayerIndex_dw]
+            selectedLayerIndex_bc = self.dlg.bergingscoefficient.currentIndex()
+            selectedLayer_bc = layers[selectedLayerIndex_bc]
+            selectedLayerIndex_ow = self.dlg.ontwateringsbasis.currentIndex()
+            selectedLayer_ow = layers[selectedLayerIndex_ow]
+            selectedLayerIndex_kw = self.dlg.kwel.currentIndex()
+            selectedLayer_kw = layers[selectedLayerIndex_kw]
+            print selectedLayer_dw, selectedLayer_bc,  selectedLayer_kw 
+            print "hoi"
+            self.dlg.talkback.setText("hoi")
+                # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            pass
+            #pass
